@@ -12,7 +12,7 @@
 | first_name         | string  | null: false               |
 | last_name_reading  | string  | null: false               |
 | first_name_reading | string  | null: false               |
-| birthday_id        | day     | null: false               |
+| birthday_id        | date    | null: false               |
 
 ### Association
 
@@ -21,28 +21,22 @@
 
 ## itemsテーブル
 
-| Colum         | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| title         | string     | null: false                    |
-| text          | text       | null: false                    |
-| category_id   | integer    | null: false                    |
-| state_id      | integer    | null: false                    |
-| charge_id     | integer    | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| date_id       | integer    | null: false                    |
-| price         | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Colum                 | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| title                 | string     | null: false                    |
+| text                  | text       | null: false                    |
+| category_id           | integer    | null: false                    |
+| state_id              | integer    | null: false                    |
+| charge_id             | integer    | null: false                    |
+| prefecture_id         | integer    | null: false                    |
+| scheduled_delivery_id | integer    | null: false                    |
+| price                 | integer    | null: false                    |
+| user                  | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one    :order
-- belongs_to :category
-- belongs_to :state
-- belongs_to :charge
-- belongs_to :prefecture
-- belongs_to :date
-
 
 ## ordersテーブル
 
