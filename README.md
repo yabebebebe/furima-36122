@@ -12,7 +12,7 @@
 | first_name         | string  | null: false               |
 | last_name_reading  | string  | null: false               |
 | first_name_reading | string  | null: false               |
-| birthday_id        | date    | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 
