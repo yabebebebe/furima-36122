@@ -77,15 +77,15 @@ RSpec.describe User, type: :model do
 
         it '重複したemailが存在する時' do  
           @user.save
-          another_user = FactoryBot.build(:user, email: @user.email)
+          another_user = FactoryBot.build(:user)
+          another_user.email = @user.email
           another_user.valid?
           expect(another_user.errors.full_messages).to include("Email has already been taken")
         end
 
         it 'emailに@を含まない時' do
           @user.email = 'yabebe.email'
-          @user.
-          valid?
+          @user.valid?
           expect(@user.errors.full_messages).to include("Email is invalid")
         end
 
@@ -127,13 +127,6 @@ RSpec.describe User, type: :model do
 
       context '本人情報確認のバリデーションに該当する時' do
 
-        it 'last_nameとfirst_nameのどちらかが空の時' do
-          @user.last_name = ''
-          @user.first_name
-          @user.valid?
-          expect(@user.errors.full_messages).to include("Last name is invalid. Input full-width characters")
-        end
-
         it 'last_nameが半角入力の時' do
           @user.last_name = 'ｲﾄｳ'
           @user.valid?
@@ -169,13 +162,6 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters")
         end
-
-        it 'last_name_readingとfirst_name_readingのどちらかが空の時' do
-          @user.last_name_reading = ''
-          @user.first_name_reading
-          @user.valid?
-          expect(@user.errors.full_messages).to include("Last name reading is invalid. Input full-width katakana characters")
-          end
   
         it 'last_name_readingが半角入力の時' do
           @user.last_name_reading = 'ｲﾄｳ'
