@@ -121,11 +121,15 @@ RSpec.describe OrderAddress, type: :model do
           expect(@order_address.errors.full_messages).to include("Phone is invalid. Input only number")
         end
 
+        it 'phoneが英数混合の時' do
+          @order_address.phone = '12345abcde'
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Phone is invalid. Input only number")
+        end
+
       end
       
     end
 
   end
 end
-
-# bundle exec rspec spec/models/order_address_spec.rb
