@@ -26,12 +26,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
-
+    
   end
 
   def update
-
     if @item.update(item_params)
       redirect_to item_path
     else
@@ -40,7 +38,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
     if @item.destroy
       redirect_to root_path
     else
